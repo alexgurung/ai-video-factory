@@ -1,8 +1,14 @@
-🎬 AI Video Factory (Full-Stack)
-A "Human-in-the-Loop" automated video production pipeline that transforms trending tech news into high-engagement vertical shorts.
+# 🎬 AI Video Factory (Full-Stack)
 
-🏗️ System Architecture
+A **Human-in-the-Loop** automated video production pipeline that transforms trending tech news into high-engagement vertical shorts.
 
+---
+
+## 🏗️ System Architecture
+
+
+
+```mermaid
 graph TD
     subgraph Frontend [Next.js Dashboard]
         A[User: Fetch News] --> B[React State Manager]
@@ -35,8 +41,9 @@ graph TD
     M --> N
     N -->|SSE Updates| H
     N -->|Final MP4| J
-    J --> I
+    J --> I 
 
+```
 
 🔬 The "Human-in-the-Loop" Design Philosophy
 Fully automated AI video production often suffers from "hallucinated" facts or poor pacing. I designed this system to solve the Trust Gap in Generative AI. By inserting a human-centric review stage between script generation and final rendering, the user maintains 100% editorial control while the AI handles 90% of the manual labor.
@@ -50,28 +57,33 @@ SSE State Management: Provides real-time feedback via Server-Sent Events (SSE), 
 
 Decoupled Architecture: Separates the Python media engine from the React-based management dashboard for better scalability and maintenance.
 
-📸 Interface Preview
+---
 
 ## 📸 Interface Preview
 
-### 1. Home
-![Dashboard Screenshot](./assets/ui.png)
+### 1. Home (News-to-Script Transition)
+![Home Dashboard](./assets/ui.jpg)
+*Showing the data ingestion and Gemini transformation.*
 
 ### 2. Rendering Pulse
-![Progress Bar Screenshot](./assets/loading.png)
+![Rendering Status](./assets/loading.jpg)
+*Capturing the live progress bar and terminal activity.*
 
 ### 3. Mobile Preview
-![Video Preview Screenshot](./assets/vidui.png)
+![Mobile Preview](./assets/vidui.jpg)
+*The final vertical video served through the local static file server.*
 
-The News-to-Script Transition: Showing the data ingestion and Gemini transformation.
-
-The Rendering Pulse: Capturing the live progress bar and terminal activity.
-
-The Mobile Preview: The final vertical video served through the local static file server.
-
+---
 🛠️ Installation & Setup
-Backend: python -m uvicorn server:app --reload --reload-dir .
+Backend (FastAPI)
+Bash
+# From root directory
+python -m uvicorn server:app --reload --reload-dir .
+Frontend (Next.js)
+Bash
+# From frontend directory
+cd frontend
+npm run dev
+Alex Gurung | Graduate Student @ University of Michigan-Flint
 
-Frontend: cd frontend && npm run dev
-
-Alex Gurung |
+Expected Graduation: April 30, 2026
