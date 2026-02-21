@@ -9,32 +9,6 @@ Instead of fully automating content creation (and risking AI hallucinations or w
 🧠 **100% editorial control**
 
 ---
-graph LR
-    Start((Trending News)) --> Trigger[HackerNews Scraper]
-    
-    subgraph Agent_Brain [AI Agent: Gemini 1.5 Pro]
-        Reasoning{Reasoning Loop}
-        Script[Generate Script]
-        Structure[Define Visual Cues]
-    end
-
-    Trigger --> Reasoning
-    Reasoning --> Script
-    Script --> Structure
-
-    subgraph Tool_Kit [Agent Tool Use]
-        Voice[Edge-TTS: Vocalize]
-        Search[Pexels API: Visual Retrieval]
-        Transcribe[Whisper AI: Time-Sync]
-        Render[MoviePy: Assembler]
-    end
-
-    Structure --> Tool_Kit
-    Tool_Kit --> Review{User Review}
-    Review -- "Edits" --> Reasoning
-    Review -- "Approved" --> Final((Final Video))
-
----
 
 
 ## 🚀 What This Project Does
